@@ -1,0 +1,16 @@
+{
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "html.format.enable": false,
+    "[html]": {
+        "editor.defaultFormatter": "scottmccaughey.angular-template-formatter",
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
