@@ -1,0 +1,58 @@
+@import "../../../../assets/styles/variables.scss";
+
+.menu-container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  h1 {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-family: $main-font;
+    color: $yellow;
+    font-size: 3.5rem;
+    padding-bottom: 64px;
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .menu-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 24px;
+      gap: 10px;
+      a {
+        display: flex;
+        align-items: flex-end;
+        color: white;
+        height: inherit;
+        text-decoration: none;
+        font-size: 24px;
+        text-align: center;
+        font-family: $main-font;
+        &:hover {
+          color: $blue;
+        }
+
+        &:hover ~ .arrow-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      .arrow-icon {
+        display: none;
+        height: inherit;
+        font-size: 34px;
+        color: $yellow;
+        line-height: none !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<div class="menu-container">
+  <h1>
+    <span>STAR WARS</span>
+    <span>Card Game</span> 
+  </h1>
+  <div class="menu">
+    <ng-container *ngFor="let menuItem of menuConfig">
+      <div class="menu-item">
+        <a [routerLink]="menuItem.path">{{ menuItem.title }}</a>
+        <mat-icon
+          class="arrow-icon"
+          fontIcon="arrow_left"></mat-icon>
+      </div>
+    </ng-container>
+  </div>
+</div>
