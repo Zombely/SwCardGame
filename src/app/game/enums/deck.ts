@@ -1,5 +1,4 @@
-export enum DeckTypes {
-  MIXED = 'Mixed',
+export enum DeckType {
   VEHICLES = 'Vehicles',
   STARSHIPS = 'Starships',
   PEOPLE = 'People',

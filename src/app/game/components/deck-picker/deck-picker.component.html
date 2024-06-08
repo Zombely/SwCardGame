@@ -1,6 +1,35 @@
-<div>
-  <div>Pick your deck</div>
-  <div>
-    <ng-container></ng-container>
+<div class="deck-picker-container">
+  <h1>Select your deck</h1>
+  <div class="decks-container">
+    <ng-container *ngFor="let config of deckConfig">
+      <a
+        [routerLink]="config.route"
+        class="deck"
+        (mouseenter)="config.isHovered= true"
+        (mouseleave)="config.isHovered= false"
+        [ngStyle]="{'background-image': 'url(' + config.coverImagePath + ')'}">
+        <div class="deck-title">{{ config.title }}</div>
+        <ng-container *ngIf="config.isHovered">
+          <div class="deck-contents">
+            <ng-container *ngIf="config.data$ | async as deckApiData else loading">
+              <div class="deck-description">{{ config.description }}</div>
+              <div class="deck-total-number-of-cards">
+                Total number of cards: {{ deckApiData.total_records }}
+              </div>
+              <div class="deck-card-examples">
+                <ng-container *ngFor="let card of deckApiData.results">
+                  {{ card.name }}
+                  <br>
+                </ng-container>
+              </div>
+            </ng-container>
+          </div>
+        </ng-container>
+      </a>
+    </ng-container>
   </div>
 </div>
+
+<ng-template #loading>
+  <div class="deck-data-loading">Loading...</div>
+</ng-template>

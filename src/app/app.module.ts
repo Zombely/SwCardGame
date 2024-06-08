@@ -6,11 +6,26 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MaterialModule } from './material/material.module';
 import { SharedModule } from './shared/shared.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { SwapiResponseInterceptor } from './shared/interceptors/swapi-response.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, MaterialModule, AppRoutingModule, SharedModule],
-  providers: [provideAnimationsAsync()],
+  imports: [
+    BrowserModule,
+    MaterialModule,
+    AppRoutingModule,
+    SharedModule,
+    HttpClientModule,
+  ],
+  providers: [
+    provideAnimationsAsync(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SwapiResponseInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
