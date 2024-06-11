@@ -1,0 +1,17 @@
+<div class="card-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ cardData.name|titlecase }}</mat-card-title>
+      <mat-card-subtitle>Type: {{cardType}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <ng-container *ngFor="let cardMeta of cardMetaData">
+        <div class="card-metadata-record">{{cardMeta.key}}: {{cardMeta.value}}</div>
+      </ng-container>
+    </mat-card-content>
+    <div class="card-attack-wrapper">
+      <mat-icon fontIcon="local_fire_department"></mat-icon>
+      {{ cardEvalAttribute }}
+    </div>
+  </mat-card>
+</div>

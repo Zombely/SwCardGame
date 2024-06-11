@@ -1,1 +1,45 @@
-<p>board works!</p>
+<ng-container *ngIf="cardsData$ | async">
+  <div class="go-back-button">
+    <mat-icon fontIcon="arrow_back_ios"></mat-icon>
+    <a [routerLink]="['/game']">Pick deck</a>
+  </div>
+  <div class="score">
+    {{ gameService.score.player }} : {{ gameService.score.enemy }}
+  </div>
+  <div class="board-container">
+    <ng-container *ngIf="winner">
+      <div class="winner">
+        <ng-container *ngIf="winner == 'Draw' else winnerTemplate">Result is: Draw!</ng-container>
+        <ng-template #winnerTemplate>Winner is: {{ winner }}!</ng-template>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="roundCards$ | async as roundCards; else loading">
+      <div class="board">
+        <div class="card-wrapper">
+          <span>
+            Player Card
+          </span>
+          <app-card [cardData]="roundCards.playerCard.result.properties"></app-card>
+        </div>
+        <div class="round-button-wrapper">
+          <ng-container *ngIf="winner else evalButton">
+            <button (click)="initRound()">Next Round</button>
+          </ng-container>
+          <ng-template #evalButton>
+            <button (click)="evalRound()">Fight!</button>
+          </ng-template>
+        </div>
+        <div class="card-wrapper">
+          <span>
+            Enemy Card
+          </span>
+          <app-card [cardData]="roundCards.enemyCard.result.properties"></app-card>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <div class="loading">Loading...</div>
+</ng-template>

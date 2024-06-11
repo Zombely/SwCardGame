@@ -14,16 +14,18 @@ interface IApiBaseResponse {
   message: string;
 }
 
+export interface IApiListResults {
+  uid: string;
+  name: string;
+  url: string;
+}
+
 export interface IApiListResponse extends IApiBaseResponse {
   total_records: number;
   total_pages: number;
   previous: string | null;
   next: string | null;
-  results: Array<{
-    uid: string;
-    name: string;
-    url: string;
-  }>;
+  results: Array<IApiListResults>;
 }
 
 export interface IApiRetrieveResponse<T> extends IApiBaseResponse {
@@ -41,6 +43,8 @@ export interface IApiRetrieveResponse<T> extends IApiBaseResponse {
 export type SwapiObject = IPeople | IVehicle | IStarship;
 
 export interface IPeople {
+  [key: string]: string;
+
   height: string;
   mass: string;
   hair_color: string;
@@ -56,6 +60,8 @@ export interface IPeople {
 }
 
 export interface IVehicle {
+  [key: string]: string | string[];
+
   model: string;
   vehicle_class: string;
   manufacturer: string;
@@ -75,6 +81,8 @@ export interface IVehicle {
 }
 
 export interface IStarship {
+  [key: string]: string | string[];
+
   model: string;
   starship_class: string;
   manufacturer: string;

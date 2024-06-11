@@ -18,7 +18,7 @@ export class DeckTypeGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    const validDeckTypes = Object.values(DeckType);
+    const validDeckTypes = Object.values(DeckType).map((deckType) => deckType);
     const deckType = route.params['deckType'];
 
     if (validDeckTypes.includes(deckType)) {

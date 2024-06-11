@@ -1,0 +1,33 @@
+@import "../../../../assets/styles/variables.scss";
+
+.card-container {
+  width: 300px;
+  height: 400px;
+  mat-card {
+    height: 100%;
+    background-color: $blue;
+    border: 8px groove $yellow;
+    border-radius: 15px;
+    color: white;
+  }
+}
+
+.card-metadata-record {
+  font-size: 8px;
+}
+
+.card-attack-wrapper {
+  display: flex;
+  margin: auto 12px 12px 0;
+  flex-direction: row;
+  font-size: 24px;
+  color: $red;
+  justify-content: flex-end;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  gap: 2px;
+  mat-icon {
+    color: $red;
+    font-size: 24px;
+  }
+}

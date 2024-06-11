@@ -6,7 +6,6 @@ export interface IDeckConfig {
   type: DeckType;
   coverImagePath: string;
   title: string;
-  route: string;
   isHovered: boolean;
   data$: Observable<IApiListResponse>;
   description: string;

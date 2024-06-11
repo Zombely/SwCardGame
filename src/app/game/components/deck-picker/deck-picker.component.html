@@ -3,7 +3,7 @@
   <div class="decks-container">
     <ng-container *ngFor="let config of deckConfig">
       <a
-        [routerLink]="config.route"
+        [routerLink]="['/game/play', config.type]"
         class="deck"
         (mouseenter)="config.isHovered= true"
         (mouseleave)="config.isHovered= false"

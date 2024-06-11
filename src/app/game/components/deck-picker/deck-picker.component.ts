@@ -18,7 +18,6 @@ export class DeckPickerComponent {
       type: DeckType.VEHICLES,
       coverImagePath: 'assets/images/vehicles-deck-cover.png',
       title: 'Vehicles',
-      route: 'vehicles',
       isHovered: false,
       data$: this.swapiService.listVehicles(this.initialDataParams),
       description:
@@ -28,7 +27,6 @@ export class DeckPickerComponent {
       type: DeckType.STARSHIPS,
       coverImagePath: 'assets/images/starships-deck-cover.png',
       title: 'Starships',
-      route: 'starships',
       isHovered: false,
       data$: this.swapiService.listStarships(this.initialDataParams),
       description:
@@ -38,7 +36,6 @@ export class DeckPickerComponent {
       type: DeckType.PEOPLE,
       coverImagePath: 'assets/images/peoples-deck-cover.png',
       title: 'Hereos&Villains',
-      route: 'people',
       isHovered: false,
       data$: this.swapiService.listPeople(this.initialDataParams),
       description:
