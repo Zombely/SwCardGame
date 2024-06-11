@@ -1,5 +1,13 @@
 # SwCardGame
 
+## Description
+This game uses the Star Wars API ([SWAPI](https://www.swapi.tech/)) to fetch data about Star Wars characters, vehicles, starships. The game is a simple card game where you can pick a deck and face against random cards. Uses common attribute to declare winner. The game is built using Angular and Material Design components.
+
+Made for Code&Pepper interview 
+
+Hosted on github pages: [SwCardGame](https://zombely.github.io/SwCardGame/)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
 
 ## Development server
@@ -20,7 +28,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+End-to-end test are written in cypress. To run `npx cypress run --e2e`
 
 ## Further help
 
