@@ -1,54 +1,8 @@
 {
   "configVersion": 1,
-  "timestamp": 1718136564591,
-  "index": "/index.html",
-  "assetGroups": [
-    {
-      "name": "app",
-      "installMode": "prefetch",
-      "updateMode": "prefetch",
-      "cacheQueryOptions": {
-        "ignoreVary": true
-      },
-      "urls": [
-        "/chunk-IHM3KHWJ.js",
-        "/chunk-OH454NCE.js",
-        "/chunk-S7ZL34KL.js",
-        "/chunk-X5IIMTIQ.js",
-        "/favicon.ico",
-        "/index.html",
-        "/main-O3FFOL4H.js",
-        "/manifest.webmanifest",
-        "/polyfills-A7MJM4D4.js",
-        "/styles-EGQLIZEH.css"
-      ],
-      "patterns": []
-    },
-    {
-      "name": "assets",
-      "installMode": "lazy",
-      "updateMode": "prefetch",
-      "cacheQueryOptions": {
-        "ignoreVary": true
-      },
-      "urls": [
-        "/assets/icons/icon-128x128.png",
-        "/assets/icons/icon-144x144.png",
-        "/assets/icons/icon-152x152.png",
-        "/assets/icons/icon-192x192.png",
-        "/assets/icons/icon-384x384.png",
-        "/assets/icons/icon-512x512.png",
-        "/assets/icons/icon-72x72.png",
-        "/assets/icons/icon-96x96.png",
-        "/assets/images/peoples-deck-cover.png",
-        "/assets/images/star-no-bg.png",
-        "/assets/images/starships-deck-cover.png",
-        "/assets/images/vehicles-deck-cover.png",
-        "/assets/styles/variables.scss"
-      ],
-      "patterns": []
-    }
-  ],
+  "timestamp": 1718141081311,
+  "index": "/SwCardGame/index.html",
+  "assetGroups": [],
   "dataGroups": [
     {
       "name": "api-performance",
@@ -65,31 +19,7 @@
       "version": 1
     }
   ],
-  "hashTable": {
-    "/assets/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
-    "/assets/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
-    "/assets/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
-    "/assets/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
-    "/assets/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
-    "/assets/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
-    "/assets/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
-    "/assets/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "/assets/images/peoples-deck-cover.png": "434ce00675a8db9ff4092cd13b9ed6ad8622bf3d",
-    "/assets/images/star-no-bg.png": "5fc869140749835d6389d0bf2eba01075388b35a",
-    "/assets/images/starships-deck-cover.png": "56f7da2721f15e114e3fb88d9777ae67d9c5dc41",
-    "/assets/images/vehicles-deck-cover.png": "a229ea3b1e532b604afe81d1135a70c5550b4a83",
-    "/assets/styles/variables.scss": "d46b2934e1d1d0c753cafdbc291119532cf65e05",
-    "/chunk-IHM3KHWJ.js": "610de59b0b2ffbcf1fc6bf0232a826e7ee9a5e70",
-    "/chunk-OH454NCE.js": "ef55caede6aa9a92b9ede171b472533ed66d47c6",
-    "/chunk-S7ZL34KL.js": "6fb3667d6eadd5682d336d51b63f1abe2921b4bd",
-    "/chunk-X5IIMTIQ.js": "22dd1793bb9ea73721b20cdf0a40bb32e0f02f34",
-    "/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/index.html": "ac13cacf29f112546eda83200611d1538fcc2fe8",
-    "/main-O3FFOL4H.js": "1a1668729338c105c895aa74bdd92349078d180d",
-    "/manifest.webmanifest": "d0a63f8cbe85870e75416b474eb08351c3d76edd",
-    "/polyfills-A7MJM4D4.js": "547053781d5952561abe68a51cc6c1a2b1b51c55",
-    "/styles-EGQLIZEH.css": "9cb68e24e71b0f7772245a8f5d18f5c6f5eb1121"
-  },
+  "hashTable": {},
   "navigationUrls": [
     {
       "positive": true,
