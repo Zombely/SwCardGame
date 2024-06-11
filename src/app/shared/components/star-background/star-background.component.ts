@@ -77,9 +77,7 @@ export class StarBackgroundComponent implements AfterViewInit {
     );
 
     const textureLoader = new THREE.TextureLoader();
-    const starTexture = textureLoader.load(
-      '../../assets/images/star-no-bg.png'
-    );
+    const starTexture = textureLoader.load('assets/images/star-no-bg.png');
 
     this.stars = new THREE.Points(
       bufferGeometry,
