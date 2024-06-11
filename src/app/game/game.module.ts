@@ -8,6 +8,7 @@ import { BoardComponent } from './components/board/board.component';
 import { CardComponent } from './components/card/card.component';
 import { ScoreComponent } from './components/score/score.component';
 import { MaterialModule } from '../material/material.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,12 @@ import { MaterialModule } from '../material/material.module';
     CardComponent,
     ScoreComponent,
   ],
-  imports: [CommonModule, HttpClientModule, GameRoutingModule, MaterialModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    GameRoutingModule,
+    MaterialModule,
+    SharedModule,
+  ],
 })
 export class GameModule {}

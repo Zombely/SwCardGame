@@ -1,8 +1,5 @@
 <ng-container *ngIf="cardsData$ | async">
-  <div class="go-back-button">
-    <mat-icon fontIcon="arrow_back_ios"></mat-icon>
-    <a [routerLink]="['/game']">Pick deck</a>
-  </div>
+  <app-go-back-button [route]="'/game'"></app-go-back-button>
   <div class="score">
     {{ gameService.score.player }} : {{ gameService.score.enemy }}
   </div>

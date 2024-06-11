@@ -13,10 +13,6 @@ export class MenuComponent {
       path: '/game',
     },
     {
-      title: 'Settings',
-      path: '/settings',
-    },
-    {
       title: 'About',
       path: '/about',
     },
