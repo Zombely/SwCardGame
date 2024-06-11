@@ -1,6 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 @Component({
   selector: 'app-star-background',
@@ -23,7 +22,6 @@ export class StarBackgroundComponent implements AfterViewInit {
   renderer!: THREE.WebGLRenderer;
   starCount: number = 10000;
   rotationSpeed: number = 0.001;
-  loaderGLTF: GLTFLoader = new GLTFLoader();
 
   ngAfterViewInit(): void {
     this.initStarBackground();
