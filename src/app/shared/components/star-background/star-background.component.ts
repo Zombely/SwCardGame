@@ -21,7 +21,7 @@ export class StarBackgroundComponent implements AfterViewInit {
   stars!: THREE.Points;
   fov: number = 75;
   renderer!: THREE.WebGLRenderer;
-  starCount: number = 20000;
+  starCount: number = 10000;
   rotationSpeed: number = 0.001;
   loaderGLTF: GLTFLoader = new GLTFLoader();
 
@@ -66,10 +66,12 @@ export class StarBackgroundComponent implements AfterViewInit {
 
   addParticles(): void {
     const bufferGeometry = new THREE.BufferGeometry();
-    const points = Float32Array.from(
-      { length: this.starCount },
-      () => (Math.random() - 0.5) * 100
-    );
+    const points = new Float32Array(this.starCount * 3);
+    for (let i = 0; i < this.starCount * 3; i += 3) {
+      points[i] = (Math.random() - 0.5) * 100; // x
+      points[i + 1] = (Math.random() - 0.5) * 100; // y
+      points[i + 2] = (Math.random() - 0.5) * 100; // z
+    }
 
     bufferGeometry.setAttribute(
       'position',
@@ -91,24 +93,5 @@ export class StarBackgroundComponent implements AfterViewInit {
       })
     );
     this.scene.add(this.stars);
-  }
-
-  addStarDestroyer(): void {
-    this.loaderGLTF.load(
-      '../../assets/models/star-destroyer.glb',
-      (gltf) => {
-        const starDestroyer = gltf.scene;
-        starDestroyer.scale.set(0.002, 0.002, 0.002);
-        starDestroyer.rotation.set(0, 1, 0.5);
-        starDestroyer.position.set(
-          Math.random() - 0.5,
-          Math.random() - 0.5,
-          Math.random() - 0.5
-        );
-        this.scene.add(starDestroyer);
-      },
-      undefined,
-      (error) => console.log(error)
-    );
   }
 }
