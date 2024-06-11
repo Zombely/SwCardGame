@@ -18,6 +18,9 @@ enum EvalAttributes {
 })
 export class GameService {
   private _currentCardsIds!: number[];
+  public set currentCardsIds(value: number[]) {
+    this._currentCardsIds = value;
+  }
 
   private _evaluationAttribute = new Map<DeckType, EvalAttributes>([
     [DeckType.PEOPLE, EvalAttributes.MASS],
@@ -34,19 +37,13 @@ export class GameService {
   constructor(private swapiService: SwapiService) {}
 
   initGame(deckType: DeckType): Observable<IApiListResponse> {
+    this.currentDeckType = deckType;
     this.score = { player: 0, enemy: 0 };
-    let cards$ = this.getCards(deckType).pipe(
+    return this.getCards().pipe(
       tap((response: IApiListResponse) => {
-        this._currentCardsIds = response.results.map((card) =>
-          Number(card.uid)
-        );
+        this.currentCardsIds = response.results.map((card) => Number(card.uid));
       })
     );
-    return cards$;
-  }
-
-  restartGame(): void {
-    this.score = { player: 0, enemy: 0 };
   }
 
   newRound(): { player: number; enemy: number } {
@@ -61,10 +58,6 @@ export class GameService {
   ): SwapiObject | null {
     if (this.currentDeckType === undefined) {
       throw new Error('Deck type is not set');
-    }
-    const evalAttr = this._evaluationAttribute.get(this.currentDeckType);
-    if (evalAttr === undefined) {
-      throw new Error('Evaluation attribute is not set');
     }
     const playerCardValue = this.getEvaluateAttributeCardValue(playerCard);
     const enemyCardValue = this.getEvaluateAttributeCardValue(enemyCard);
@@ -86,11 +79,11 @@ export class GameService {
     ];
   }
 
-  getCards(deckType: DeckType): Observable<IApiListResponse> {
-    this.currentDeckType = deckType;
+  getCards(): Observable<IApiListResponse> {
+    if (!this.currentDeckType) throw new Error('Deck type is not set');
     let data$: Observable<IApiListResponse>;
     let params = { limit: 100, page: 1 };
-    switch (deckType) {
+    switch (this.currentDeckType) {
       case DeckType.PEOPLE:
         data$ = this.swapiService.listPeople(params);
         break;
@@ -100,8 +93,6 @@ export class GameService {
       case DeckType.STARSHIPS:
         data$ = this.swapiService.listStarships(params);
         break;
-      default:
-        throw new Error(`Invalid deck type: ${deckType}`);
     }
     return data$;
   }
@@ -117,8 +108,6 @@ export class GameService {
         return this.swapiService.retrieveVehicle(cardId);
       case DeckType.STARSHIPS:
         return this.swapiService.retrieveStarship(cardId);
-      default:
-        throw new Error(`Invalid deck type: ${this.currentDeckType}`);
     }
   }
 
@@ -126,10 +115,9 @@ export class GameService {
     if (!this.currentDeckType) {
       throw new Error('Deck type is not set');
     }
-    const evalAttr = this._evaluationAttribute.get(this.currentDeckType);
-    if (evalAttr === undefined) {
-      throw new Error('Evaluation attribute is not set');
-    }
+    const evalAttr = this._evaluationAttribute.get(
+      this.currentDeckType
+    ) as EvalAttributes;
 
     let cardNonParsedValue = card[evalAttr.toString()];
     if (typeof cardNonParsedValue !== 'string')

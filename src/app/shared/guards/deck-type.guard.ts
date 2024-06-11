@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DeckType } from '../../game/enums/deck';
 
@@ -15,8 +10,7 @@ export class DeckTypeGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    route: ActivatedRouteSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     const validDeckTypes = Object.values(DeckType).map((deckType) => deckType);
     const deckType = route.params['deckType'];

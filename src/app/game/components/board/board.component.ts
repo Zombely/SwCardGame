@@ -40,7 +40,6 @@ export class BoardComponent implements OnInit {
   initRound(): void {
     this.winner = null;
     let cards = this.gameService.newRound();
-
     this.roundCards$ = forkJoin([
       this.gameService.retrieveCard(cards.player),
       this.gameService.retrieveCard(cards.enemy),

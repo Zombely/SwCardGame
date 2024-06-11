@@ -7,10 +7,11 @@ import {
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class SwapiResponseInterceptor implements HttpInterceptor {
-  constructor(private snackBar: MatSnackBar) {}
+  constructor(private snackBar: MatSnackBar, private router: Router) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -26,8 +27,9 @@ export class SwapiResponseInterceptor implements HttpInterceptor {
               duration: 5000,
             }
           );
+          this.router.navigate(['/']);
         }
-        return throwError(error);
+        return throwError(() => error);
       })
     );
   }

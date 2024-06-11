@@ -6,17 +6,11 @@ import { DeckPickerComponent } from './components/deck-picker/deck-picker.compon
 import { HttpClientModule } from '@angular/common/http';
 import { BoardComponent } from './components/board/board.component';
 import { CardComponent } from './components/card/card.component';
-import { ScoreComponent } from './components/score/score.component';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    DeckPickerComponent,
-    BoardComponent,
-    CardComponent,
-    ScoreComponent,
-  ],
+  declarations: [DeckPickerComponent, BoardComponent, CardComponent],
   imports: [
     CommonModule,
     HttpClientModule,
